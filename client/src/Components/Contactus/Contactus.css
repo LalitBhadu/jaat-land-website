@@ -1,0 +1,15 @@
+.Contactus{
+    position: relative;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+@media (max-width: 767px) {
+    .Contactus{
+        position: relative;
+        color: white;
+        text-align: center;
+        margin-top: 100px;
+    }
+}
