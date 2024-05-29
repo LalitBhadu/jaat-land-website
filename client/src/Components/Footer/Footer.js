@@ -5,6 +5,7 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { CiTwitter } from "react-icons/ci";
 import BootamFooter from "./BootamFooter";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
         <div className="row" style={{ width: "100%" }}>
           <div className="col-md-3">
             <Image
-              src="./../assests/02.jpg"
+              src="assests/logomain.png"
               style={{
                 width: "80px",
                 display: "inline-flex",
@@ -21,16 +22,29 @@ const Footer = () => {
                 cursor: "pointer",
               }}
             />
-            <Text cursor="pointer" marginLeft="20px" textAlign="left">
-              Jaat raj
+            <Text
+              cursor="pointer"
+              marginLeft="20px"
+              textAlign="left"
+              color="black"
+              fontSize="x-large"
+            >
+              About Jaat
             </Text>
-            <Text cursor="pointer" marginLeft="20px" textAlign="left">
-              About Jaat{" "}
-            </Text>
-            <Text cursor="pointer" marginLeft="20px" textAlign="left">
+            <Text
+              cursor="pointer"
+              marginLeft="20px"
+              textAlign="left"
+              color="black"
+            >
               How Jaat Work
             </Text>
-            <Text cursor="pointer" marginLeft="20px" textAlign="left">
+            <Text
+              cursor="pointer"
+              marginLeft="20px"
+              textAlign="left"
+              color="black"
+            >
               Help & Support
             </Text>
           </div>
@@ -41,16 +55,32 @@ const Footer = () => {
               fontWeight="500"
               textAlign="left"
               cursor="pointer"
+              color="black"
             >
               Terms
             </Text>
-            <Text cursor="pointer" marginLeft="20px" textAlign="left">
+            <Text
+              cursor="pointer"
+              marginLeft="20px"
+              textAlign="left"
+              color="black"
+            >
               Privacy Policy{" "}
             </Text>
-            <Text cursor="pointer" marginLeft="20px" textAlign="left">
+            <Text
+              cursor="pointer"
+              marginLeft="20px"
+              textAlign="left"
+              color="black"
+            >
               Terms & Conditions
             </Text>
-            <Text cursor="pointer" marginLeft="20px" textAlign="left">
+            <Text
+              cursor="pointer"
+              marginLeft="20px"
+              textAlign="left"
+              color="black"
+            >
               Copyright Policy
             </Text>
           </div>
@@ -61,14 +91,25 @@ const Footer = () => {
               fontWeight="500"
               textAlign="left"
               cursor="pointer"
+              color="black"
             >
               Contact Us
             </Text>
-            <Text cursor="pointer" marginLeft="20px" textAlign="left">
-              Call: {"99999-99999 "}
+            <Text
+              cursor="pointer"
+              marginLeft="20px"
+              textAlign="left"
+              color="black"
+            >
+              <strong> Call:</strong> {"95018-05508"}
             </Text>
-            <Text cursor="pointer" marginLeft="20px" textAlign="left">
-              Email: {"jaatraj16x8@gmail.com "}
+            <Text
+              cursor="pointer"
+              marginLeft="20px"
+              textAlign="left"
+              color="black"
+            >
+              <strong>Email:</strong> {"info@jaat.info"}
             </Text>
           </div>
           <div className="col-md-3">
@@ -77,6 +118,7 @@ const Footer = () => {
               fontSize="x-large"
               fontWeight="500"
               textAlign="left"
+              color="black"
             >
               Social Links
             </Text>
@@ -89,38 +131,37 @@ const Footer = () => {
                 cursor: "pointer",
               }}
             >
-              <FaFacebook
-                style={{
-                  width: "30px",
-                  height: "30px",
-                  color: "blue",
-                  cursor: "pointer",
-                }}
-              />
-              <FaInstagramSquare
-                style={{
-                  width: "30px",
-                  height: "30px",
-                  color: "hotpink",
-                  cursor: "pointer",
-                }}
-              />
-              <FaYoutube
-                style={{
-                  width: "30px",
-                  height: "30px",
-                  color: "red",
-                  cursor: "pointer",
-                }}
-              />
-              <CiTwitter
-                style={{
-                  width: "30px",
-                  height: "30px",
-                  color: "red",
-                  cursor: "pointer",
-                }}
-              />
+              <Link to="">
+                <FaFacebook
+                  style={{
+                    width: "30px",
+                    height: "30px",
+                    color: "blue",
+                    cursor: "pointer",
+                  }}
+                />
+              </Link>
+              <Link to="https://www.instagram.com/jaat.info?igsh=MXFweXg0eGt0Y3ltYw%3D%3D&utm_source=qr">
+                <FaInstagramSquare
+                  style={{
+                    width: "30px",
+                    height: "30px",
+                    color: "hotpink",
+                    cursor: "pointer",
+                  }}
+                />
+              </Link>
+              <Link to="http://www.youtube.com/@jaatonkebaareme">
+                {" "}
+                <FaYoutube
+                  style={{
+                    width: "30px",
+                    height: "30px",
+                    color: "red",
+                    cursor: "pointer",
+                  }}
+                />
+              </Link>
             </div>
           </div>
         </div>

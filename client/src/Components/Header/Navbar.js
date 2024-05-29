@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Navbar.css";
 import { Box, Button, Text } from "@chakra-ui/react";
 import {
@@ -26,64 +26,18 @@ const Navbar = () => {
         <div className="container-fluid">
           <span className="navbar-brand">
             <Link to="/">
-              <img src="./../assests/02.jpg" alt="Logo" />
+              <img src="assests/logomain.png" alt="Logo" />
             </Link>
           </span>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-            style={{ color: "white" }}
-          >
-            <TiThMenu />
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <span className="navbar-nav me-auto mb-1 mb-lg-0">
-              <span className="nav-item">
-                <Menu>
-                  <MenuButton colorScheme="" as={Button}>
-                    Home
-                  </MenuButton>
-                </Menu>
-              </span>
-              <span className="nav-item">
-                <Menu>
-                  <Link to="/about-us">
-                    {" "}
-                    <MenuButton colorScheme="" as={Button}>
-                      About Jaat
-                    </MenuButton>
-                  </Link>
-                </Menu>
-              </span>
-              <span className="nav-item">
-                <Menu>
-                  <Link to="/history-jaat">
-                    <MenuButton colorScheme="" as={Button}>
-                      Jaat History
-                    </MenuButton>
-                  </Link>
-                </Menu>
-              </span>
-              <span className="nav-item">
-                <Menu>
-                  <Link to="/gotars-jaat">
-                    <MenuButton colorScheme="" as={Button}>
-                      Gotrast
-                    </MenuButton>
-                  </Link>
-                </Menu>
-              </span>
-            </span>
-            <form className="d-flex" role="search">
-              <span className="nav-item">
-                <span className="nav-link">
-                  <Button as={Link} to="/" colorScheme="pink">
-                    Jaat Shop{" "}
+          <form className="d-flex mobile" role="search">
+            <span className="nav-item">
+              <span className="nav-link">
+                <Link
+                  to="https://open.spotify.com/playlist/6aQ7ITFaf5hQwp9hGvR3JF?si=gblr72OHR_m7mYGyl7C5bw&pi=jyJDy81JRRqB-"
+                  target="_blank"
+                >
+                  <Button colorScheme="pink">
+                    Listen to New Jaat Songs
                     <TbMoustache
                       style={{
                         width: "60px",
@@ -93,10 +47,10 @@ const Navbar = () => {
                       }}
                     />
                   </Button>
-                </span>
+                </Link>
               </span>
-            </form>
-          </div>
+            </span>
+          </form>
         </div>
       </nav>
     </>

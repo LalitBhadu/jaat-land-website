@@ -1,28 +1,20 @@
-import { Button, Text } from "@chakra-ui/react";
-import React from "react";
-import { Link } from "react-router-dom";
+import "./screen.css";
 
 const Screen3 = () => {
   return (
-    <>
-      <div className="screen3">
-        <div className="row" style={{ width: "100%" }}>
-          <div className="col-md-6">
-            <img src="assests/jaat 2.jpg" className="img-adjusts" />
-          </div>
-          <div className="col-md-6">
-            <Text fontSize="xx-large" textAlign="center" marginTop="30px">
-              हाम बनाने लागरे हा जाट की सबसे बड़ी डाइरेक्टरी <br />
-              English & Hind
-            </Text>
-            <Link to="/contact-us">
-              {" "}
-              <Button colorScheme="pink">Click If You are Jaat</Button>
-            </Link>
-          </div>
-        </div>
+    <div className="screen3">
+      <div className="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/zpxBXYxQ2q8?autoplay=1&controls=1&mute=0&rel=0"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+          className="fullscreen-video"
+        ></iframe>
       </div>
-    </>
+    </div>
   );
 };
 

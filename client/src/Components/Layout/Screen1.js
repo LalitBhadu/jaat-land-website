@@ -1,40 +1,11 @@
 import { Box, Button, Center, Text } from "@chakra-ui/react";
 import "./screen.css";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { useEffect, useMemo, useRef, useState } from "react";
-import particlesConfig from "./particlesConfig.json";
-import { loadFull } from "tsparticles";
-import { loadSlim } from "@tsparticles/slim";
-import {
-  List,
-  ListItem,
-  ListIcon,
-  OrderedList,
-  UnorderedList,
-} from "@chakra-ui/react";
-import {
-  IoMdCheckmarkCircle,
-  IoMdCheckmarkCircleOutline,
-  IoMdSettings,
-} from "react-icons/io";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Screen1 = (props) => {
-  const [init, setInit] = useState(false);
   const slideInRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
-    });
-  }, []);
-
-  const particlesLoaded = (container) => {
-    console.log(container);
-  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -61,44 +32,41 @@ const Screen1 = (props) => {
   }, []);
 
   return (
-    <>
-      <Particles
-        id={props.id}
-        init={particlesLoaded}
-        options={particlesConfig}
-      />
+    <div className="content">
+      <div className="overlay">
+        <div className="text-content">
+          <Text
+            fontSize="x-large"
+            color="white"
+            fontFamily="Lemon"
+            marginBottom="50px"
+          >
+            "A People Without the knowledge of their past history, origin and
+            culture are like a tree without roots."
+          </Text>
+          <Text
+            fontSize="large"
+            color="white"
+            fontFamily="Lemon"
+            marginBottom="50px"
+          >
+            अपने अतीत के इतिहास, उत्पत्ति और संस्कृति के ज्ञान के बिना लोग जड़ों
+            के बिना एक पेड़ की तरह हैं
+          </Text>
 
-      <div className="content">
-        <div className="row" style={{ width: "100%" }}>
-          <div className="col-md-6">
-            <Text fontSize="xx-large" textAlign="center" marginTop="50px">
-              "A People Without the knowledge of their past history, origin and
-              culture are like a tree without roots."
-            </Text>
-
-            <Button
-              colorScheme="pink"
-              marginRight={1}
-              fontSize="x-large"
-              height="40px"
-              marginBottom={3}
-              as={Link}
-              to="/contact-us"
-            >
-              Click If You are Jaat
-            </Button>
-          </div>
-          <div className="col-md-6 slide-in-container" ref={slideInRef}>
-            <img
-              className={`slide-in-image ${isVisible ? "slide-in" : ""}`}
-              style={{ width: "100%", margin: "10px", height: "100%" }}
-              src="assests/jaat1.jpg"
-              alt="Slide In Example"
-            />
-          </div>
+          <Button
+            colorScheme="pink"
+            fontSize="x-large"
+            height="40px"
+            fontFamily="Lemon"
+            as={Link}
+            to="/contact-us"
+          >
+            Click If You are Jaat
+          </Button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

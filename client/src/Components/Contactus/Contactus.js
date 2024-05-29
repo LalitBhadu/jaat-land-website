@@ -11,6 +11,7 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Select,
   Text,
   useToast,
 } from "@chakra-ui/react";
@@ -31,11 +32,14 @@ const Contactus = (props) => {
   const [whatsapp, setWhatsapp] = useState("");
   const [mobile, setMobile] = useState("");
   const [message, setMessage] = useState("");
+  const [isMobileValid, setIsMobileValid] = useState(true);
+  const [work, setWork] = useState("");
+  const [uplabdi, setUplabdi] = useState("");
+  const [chosework, setChosework] = useState("");
   const [loading, setLoading] = useState(false);
   const toast = useToast();
   const form = useRef();
-  const [isButtonDisabled, setButtonDisabled] = useState(false);
-  const [countdown, setCountdown] = useState(10);
+  const [isButtonDisabled, setButtonDisabled] = useState(true);
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -49,6 +53,18 @@ const Contactus = (props) => {
     console.log(container);
   };
 
+  const validateMobile = (value) => {
+    const mobilePattern = /^[0-9]{10}$/; // Regular expression for 10-digit mobile number
+    return mobilePattern.test(value);
+  };
+
+  const handleMobileChange = (e) => {
+    const value = e.target.value;
+    setMobile(value);
+    setIsMobileValid(validateMobile(value));
+    setButtonDisabled(!validateMobile(value)); // Disable button if mobile number is invalid
+  };
+
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -56,12 +72,14 @@ const Contactus = (props) => {
       return;
     }
 
+    setLoading(true);
+
     emailjs
       .sendForm(
-        "service_3z8e41r",
-        "template_ezywdc8",
+        "service_gv3mrr9",
+        "template_zu6jxts",
         form.current,
-        "lANXlNTd4kb7eIcDD"
+        "-Q8HqdrUJO54yxSkP"
       )
       .then(
         (result) => {
@@ -85,6 +103,9 @@ const Contactus = (props) => {
           setWhatsapp("");
           setMobile("");
           setMessage("");
+          setWork("");
+          setUplabdi("");
+          setChosework("");
         },
         (error) => {
           setLoading(false);
@@ -105,11 +126,11 @@ const Contactus = (props) => {
 
   return (
     <>
-      <Particles
+      {/* <Particles
         id={props.id}
         init={particlesLoaded}
         options={particlesConfig}
-      />
+      /> */}
       <Box
         position="fixed"
         top="0"
@@ -126,16 +147,27 @@ const Contactus = (props) => {
             <span className="navbar-brand">
               <Link to="/">
                 <img
-                  src="assests/02.jpg"
-                  style={{ width: "100px", height: "auto" }}
+                  src="assests/logomain.png"
+                  style={{ width: "100px", height: "auto", marginTop: "100px" }}
                 />
               </Link>
             </span>
           </Center>
-          <Text fontSize="xx-large" fontFamily="Work sans" color="white">
+          <Text
+            fontSize="xx-large"
+            fontFamily="lemon"
+            color="black"
+            marginTop="20px"
+          >
             Welcome to Jaat Land{" "}
-            <Text fontSize="large" background="hotpink" borderRadius="30px">
-              जाट भूमि से बस एक कदम दूर
+            <Text
+              fontSize="large"
+              background="hotpink"
+              borderRadius="30px"
+              fontFamily="lemon"
+              color="black"
+            >
+              "जाटों का इतिहास" किताब में नाम दर्ज करवाने से बस एक कदम दूर
             </Text>
           </Text>
           <Box
@@ -147,97 +179,171 @@ const Contactus = (props) => {
           >
             <form ref={form} onSubmit={sendEmail}>
               <FormControl id="name" isRequired>
-                <FormLabel>Enter Your Name</FormLabel>
+                <FormLabel fontFamily="lemon" color="black">
+                  Enter Your Name
+                </FormLabel>
                 <Input
                   placeholder="Enter Your Name"
                   name="name"
                   onChange={(e) => setName(e.target.value)}
                   value={name}
+                  color="black"
                 />
               </FormControl>
               <FormControl id="gotra" isRequired>
-                <FormLabel>Enter Your Gotra</FormLabel>
+                <FormLabel fontFamily="lemon" color="black">
+                  Enter Your Gotra
+                </FormLabel>
                 <Input
                   placeholder="Enter Your Gotra"
                   name="gotra"
                   onChange={(e) => setGotra(e.target.value)}
                   value={gotra}
+                  color="black"
                 />
               </FormControl>
               <FormControl id="village" isRequired>
-                <FormLabel>Enter Your Village</FormLabel>
+                <FormLabel fontFamily="lemon" color="black">
+                  Enter Your Village
+                </FormLabel>
                 <Input
                   placeholder="Enter Your Village"
                   name="village"
                   onChange={(e) => setVillage(e.target.value)}
                   value={village}
+                  color="black"
                 />
               </FormControl>
               <FormControl id="dist" isRequired>
-                <FormLabel>Enter Your District</FormLabel>
+                <FormLabel fontFamily="lemon" color="black">
+                  Enter Your District
+                </FormLabel>
                 <Input
                   placeholder="Enter Your District"
                   name="dist"
                   onChange={(e) => setDist(e.target.value)}
                   value={dist}
+                  color="black"
                 />
               </FormControl>
               <FormControl id="state" isRequired>
-                <FormLabel>Enter Your State</FormLabel>
+                <FormLabel fontFamily="lemon" color="black">
+                  Enter Your State
+                </FormLabel>
                 <Input
                   placeholder="Enter Your State"
                   name="state"
                   onChange={(e) => setState(e.target.value)}
                   value={state}
+                  color="black"
                 />
               </FormControl>
-              <FormControl id="instagram" isRequired>
-                <FormLabel>Enter Your Instagram ID Link</FormLabel>
+              <FormControl id="instagram">
+                <FormLabel fontFamily="lemon" color="black">
+                  Enter Your Instagram ID Link
+                </FormLabel>
                 <Input
                   placeholder="Enter Your Instagram ID Link"
                   name="instagram"
                   onChange={(e) => setInstagram(e.target.value)}
                   value={instagram}
+                  color="black"
                 />
               </FormControl>
-              <FormControl id="facebook" isRequired>
-                <FormLabel>Enter Your Facebook ID Link</FormLabel>
+              <FormControl id="facebook">
+                <FormLabel fontFamily="lemon" color="black">
+                  Enter Your Facebook ID Link
+                </FormLabel>
                 <Input
                   placeholder="Enter Your Facebook ID Link"
                   name="facebook"
                   onChange={(e) => setFacebook(e.target.value)}
                   value={facebook}
+                  color="black"
                 />
               </FormControl>
-              <FormControl id="whatsapp" isRequired>
-                <FormLabel>Enter Your Whatsapp No</FormLabel>
+              <FormControl id="whatsapp">
+                <FormLabel fontFamily="lemon" color="black">
+                  Enter Your Whatsapp No
+                </FormLabel>
                 <Input
                   placeholder="Enter Your Whatsapp No"
                   name="whatsapp"
                   onChange={(e) => setWhatsapp(e.target.value)}
                   value={whatsapp}
+                  color="black"
                 />
               </FormControl>
               <FormControl id="mobile" isRequired>
-                <FormLabel>Enter Your Mobile</FormLabel>
+                <FormLabel fontFamily="lemon" color="black">
+                  Enter Your Mobile
+                </FormLabel>
                 <Input
                   type="tel"
                   placeholder="Enter Your Mobile"
                   name="mobile"
-                  onChange={(e) => setMobile(e.target.value)}
+                  onChange={handleMobileChange}
                   value={mobile}
+                  color="black"
+                  borderColor={isMobileValid ? "gray.200" : "red.500"}
                 />
               </FormControl>
               <FormControl id="message" isRequired>
-                <FormLabel>आपको जाट होने पर गर्व क्यूँ हैं</FormLabel>
+                <FormLabel fontFamily="lemon" color="black">
+                  आपको जाट होने पर गर्व क्यूँ हैं
+                </FormLabel>
                 <Input
                   placeholder="आपको जाट होने पर गर्व क्यूँ हैं"
                   name="message"
                   onChange={(e) => setMessage(e.target.value)}
                   value={message}
+                  color="black"
                 />
               </FormControl>
-
+              <FormControl id="work" isRequired>
+                <FormLabel fontFamily="lemon" color="black">
+                  आप क्या काम करते हैं ?
+                </FormLabel>
+                <Input
+                  placeholder="आप क्या काम करते हैं ?"
+                  name="work"
+                  onChange={(e) => setWork(e.target.value)}
+                  value={work}
+                  color="black"
+                />
+              </FormControl>
+              <FormControl id="uplabdi" isRequired>
+                <FormLabel fontFamily="lemon" color="black">
+                  आपकी हासिल की उपलब्धियां 
+                </FormLabel>
+                <Input
+                  placeholder="आपकी हासिल की उपलब्धियां "
+                  name="uplabdi"
+                  onChange={(e) => setUplabdi(e.target.value)}
+                  value={uplabdi}
+                  color="black"
+                />
+              </FormControl>
+              <FormControl id="chosework" isRequired>
+                <FormLabel fontFamily="lemon" color="black">
+                  क्या आप इनमें से कोई हैं ?
+                </FormLabel>
+                <Select
+                  placeholder="क्या आप इनमें से कोई हैं ?"
+                  name="chosework"
+                  onChange={(e) => setChosework(e.target.value)}
+                  value={chosework}
+                  color="black"
+                >
+                  <option value="Sportsperson">Sportsperson</option>
+                  <option value="Academician">Academician</option>
+                  <option value="Soldier">Soldier</option>
+                  <option value="Influencer">Influencer</option>
+                  <option value="Freedom Fighter">Freedom Fighter</option>
+                  <option value="Politician">Politician</option>
+                  <option value="Businessman">Businessman</option>
+                </Select>
+              </FormControl>
               <Button
                 marginTop={3}
                 width="100%"
@@ -245,7 +351,9 @@ const Contactus = (props) => {
                 type="submit"
                 disabled={isButtonDisabled || loading}
               >
-                {isButtonDisabled ? `Sending...)` : "Send Email"}
+                {isButtonDisabled
+                  ? `Please fill correct Details`
+                  : "Send Email"}
               </Button>
             </form>{" "}
           </Box>

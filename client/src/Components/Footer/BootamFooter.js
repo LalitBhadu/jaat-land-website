@@ -7,11 +7,12 @@ const BootamFooter = () => {
       <div className="footer">
         <div
           className="row"
-          style={{ width: "100%", borderTop: "1px solid white" }}
+          style={{ width: "100%", borderTop: "1px solid black" }}
         >
           <div className="col-md-12">
-            <Text></Text>
-            <Text>Copyright © 2024 </Text>
+            <Text color="black" fontWeight="600">
+              Copyright © 2024 jaat.Info{" "}
+            </Text>
           </div>
         </div>
       </div>

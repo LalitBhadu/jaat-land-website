@@ -9,7 +9,7 @@ height: 105px;
 
 .navbar-brand{
     height: auto;
-    width: 100px;
+    width: 80px;
     padding: 3px;
     margin-left: 10px;
 }
@@ -22,3 +22,11 @@ height: 105px;
 .drpodown{
     background-color: black;
 }
+
+/* Navbar.css */
+
+  /* Media query for screens larger than 768px (e.g., laptops) */
+  @media (min-width: 768px) {
+
+  }
+  
